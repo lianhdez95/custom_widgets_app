@@ -25,9 +25,10 @@ class _BMCardWidgetState extends State<BMCardWidget> {
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           color: const Color(0xFF9B9999),
-          elevation: 4,
+          elevation: 5,
+          shadowColor: Colors.black,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(width*0.03),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
