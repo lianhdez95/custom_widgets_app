@@ -93,10 +93,13 @@ class _BMCardWidgetState extends State<BMCardWidget> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.arrow_left,
-                      color: Color.fromARGB(255, 25, 177, 5),
-                      size: height * 0.05,
+                    Transform.scale(
+                      scaleY: 2.5,
+                      child: Icon(
+                        Icons.arrow_left,
+                        color: Color.fromARGB(255, 25, 177, 5),
+                        size: height * 0.05,
+                      ),
                     ),
                     SizedBox(
                       width: width * 0.03,
