@@ -134,7 +134,7 @@ class _BPACardWidgetState extends State<BPACardWidget> {
                       color: Color.fromARGB(150, 24, 73, 65),
                       borderRadius: BorderRadius.horizontal(
                           left: Radius.circular(width * 0.5))),
-                  height: height * 0.006,
+                  height: height * 0.007,
                   width: width * 0.6,
                 ),
               ),
@@ -148,7 +148,7 @@ class _BPACardWidgetState extends State<BPACardWidget> {
                       color: Color.fromARGB(150, 24, 73, 65),
                       borderRadius: BorderRadius.horizontal(
                           right: Radius.circular(width * 0.5))),
-                  height: height * 0.006,
+                  height: height * 0.007,
                   width: width * 0.6,
                 ),
               ),

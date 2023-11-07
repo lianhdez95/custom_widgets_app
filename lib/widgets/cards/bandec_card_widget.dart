@@ -88,16 +88,15 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
                     ],
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: height * 0.01),
                     color: Color.fromARGB(70, 255, 255, 255),
                     child: Padding(
-                      padding: EdgeInsets.all(height * 0.005),
+                      padding: EdgeInsets.all(height * 0.015),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(
-                            width: width * 0.12,
+                            width: width * 0.1,
                           ),
                           !showNumber
                               ? Text('****  ****  ****  0000',
@@ -117,7 +116,7 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
                   ),
                   Container(
                     padding:
-                        EdgeInsets.only(top: height * 0.01, left: width * 0.05),
+                        EdgeInsets.only(left: width * 0.05),
                     alignment: Alignment.centerLeft,
                     child: Text('LIAN HERNÁNDEZ DELGADO',
                         style: TextStyle(
