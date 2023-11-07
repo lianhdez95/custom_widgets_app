@@ -110,9 +110,10 @@ class _BMCardWidgetState extends State<BMCardWidget> {
                   ],
                 ),
               ),
+              SizedBox(height: height*0.02,),
               Container(
-                padding: EdgeInsets.only(top: height * 0.01),
-                alignment: Alignment.center,
+                padding: EdgeInsets.only(top: height * 0.01, left: width*0.05),
+                alignment: Alignment.centerLeft,
                 child: Text('LIAN HERNÁNDEZ DELGADO',
                     style: TextStyle(fontSize: height * 0.02, fontFamily: 'Roboto')),
               ),
@@ -129,11 +130,11 @@ class _BMCardWidgetState extends State<BMCardWidget> {
                     children: [
                       Text(
                         'CUP',
-                        style: TextStyle(fontSize: height * 0.02, fontFamily: 'Roboto'),
+                        style: TextStyle(fontSize: height * 0.018, fontFamily: 'Roboto'),
                       ),
                       Text(
                         'VENCE: 00/00',
-                        style: TextStyle(fontSize: height * 0.02, fontFamily: 'Roboto'),
+                        style: TextStyle(fontSize: height * 0.018, fontFamily: 'Roboto'),
                       ),
                       Icon(
                         Icons.check,
