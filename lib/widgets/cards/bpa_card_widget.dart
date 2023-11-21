@@ -1,3 +1,6 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class BPACardWidget extends StatefulWidget {
@@ -17,13 +20,15 @@ class _BPACardWidgetState extends State<BPACardWidget> {
 
     return GestureDetector(
       onTap: () {
-        print('He apretado la tarjeta');
+        if (kDebugMode) {
+          print('He apretado la tarjeta');
+        }
       },
       child: Padding(
         padding: EdgeInsets.all(width * 0.05),
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          color: Color.fromARGB(255, 219, 235, 228),
+          color: const Color.fromARGB(255, 219, 235, 228),
           elevation: 5,
           shadowColor: Colors.black,
           shape: RoundedRectangleBorder(
@@ -41,7 +46,7 @@ class _BPACardWidgetState extends State<BPACardWidget> {
                     width: width * 0.85 * 0.8,
                     height: height * 0.22 * 0.35,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 219, 235, 228),
+                      color: const Color.fromARGB(255, 219, 235, 228),
                       borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(width * 0.03),
                       ),
@@ -74,7 +79,7 @@ class _BPACardWidgetState extends State<BPACardWidget> {
                 alignment: Alignment.centerLeft,
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(150, 24, 73, 65),
+                      color: const Color.fromARGB(150, 24, 73, 65),
                       borderRadius: BorderRadius.horizontal(
                           right: Radius.circular(width * 0.5))),
                   height: height * 0.007,
@@ -88,50 +93,47 @@ class _BPACardWidgetState extends State<BPACardWidget> {
                 alignment: Alignment.centerRight,
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(150, 24, 73, 65),
+                      color: const Color.fromARGB(150, 24, 73, 65),
                       borderRadius: BorderRadius.horizontal(
                           left: Radius.circular(width * 0.5))),
                   height: height * 0.007,
                   width: width * 0.6,
                 ),
               ),
-              Container(
-                // padding: EdgeInsets.only(top: height * 0.01),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(height * 0.01),
-                      side: BorderSide(
-                          color: Color.fromARGB(255, 24, 73, 65),
-                          width: height * 0.003)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.arrow_left,
-                        color: Color.fromARGB(255, 177, 137, 5),
-                        size: height * 0.05,
-                      ),
-                      SizedBox(
-                        width: width * 0.03,
-                      ),
-                      !showNumber
-                          ? Text('****  ****  ****  0000',
-                              style: TextStyle(
-                                  fontSize: width * 0.06, fontFamily: 'Roboto'))
-                          : Text('9225  1299  0000  0000',
-                              style: TextStyle(
-                                  fontSize: width * 0.06,
-                                  fontFamily: 'Roboto')),
-                    ],
-                  ),
+              Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(height * 0.01),
+                    side: BorderSide(
+                        color: const Color.fromARGB(255, 24, 73, 65),
+                        width: height * 0.003)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.arrow_left,
+                      color: const Color.fromARGB(255, 177, 137, 5),
+                      size: height * 0.05,
+                    ),
+                    SizedBox(
+                      width: width * 0.03,
+                    ),
+                    !showNumber
+                        ? Text('****  ****  ****  0000',
+                            style: TextStyle(
+                                fontSize: width * 0.06, fontFamily: 'Roboto'))
+                        : Text('9225  1299  0000  0000',
+                            style: TextStyle(
+                                fontSize: width * 0.06,
+                                fontFamily: 'Roboto')),
+                  ],
                 ),
               ),
               Container(
                 alignment: Alignment.centerRight,
                 child: Container(
                    decoration: BoxDecoration(
-                      color: Color.fromARGB(150, 24, 73, 65),
+                      color: const Color.fromARGB(150, 24, 73, 65),
                       borderRadius: BorderRadius.horizontal(
                           left: Radius.circular(width * 0.5))),
                   height: height * 0.007,
@@ -145,7 +147,7 @@ class _BPACardWidgetState extends State<BPACardWidget> {
                 alignment: Alignment.centerLeft,
                 child: Container(
                    decoration: BoxDecoration(
-                      color: Color.fromARGB(150, 24, 73, 65),
+                      color: const Color.fromARGB(150, 24, 73, 65),
                       borderRadius: BorderRadius.horizontal(
                           right: Radius.circular(width * 0.5))),
                   height: height * 0.007,

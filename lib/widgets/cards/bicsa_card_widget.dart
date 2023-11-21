@@ -1,5 +1,7 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class BicsaCardWidget extends StatefulWidget {
   const BicsaCardWidget({super.key});
@@ -18,7 +20,9 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
 
     return GestureDetector(
       onTap: () {
-        print('He apretado la tarjeta');
+        if (kDebugMode) {
+          print('He apretado la tarjeta');
+        }
       },
       child: Padding(
         padding: EdgeInsets.all(width * 0.05),
@@ -31,11 +35,11 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
           ),
           child: ClipRRect(
             child: Container(
-              decoration: BoxDecoration(color: Colors.black),
+              decoration: const BoxDecoration(color: Colors.black),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(bottomRight: Radius.circular(width*0.4)),
-                    gradient: LinearGradient(colors: [
+                    gradient: const LinearGradient(colors: [
                   Color.fromARGB(255, 218, 202, 155),
                   Color.fromARGB(255, 197, 171, 93)
                 ], begin: Alignment(1.0, 0.7))),
@@ -90,31 +94,29 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
                         )
                       ],
                     ),
-                    Container(
-                      child: Padding(
-                        padding: EdgeInsets.all(height * 0.015),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.arrow_back_ios_sharp,
-                              color: Colors.black,
-                            ),
-                            SizedBox(
-                              width: width * 0.1,
-                            ),
-                            !showNumber
-                                ? Text('****  ****  ****  0000',
-                                    style: TextStyle(
-                                        fontSize: width * 0.06,
-                                        fontFamily: 'Roboto'))
-                                : Text('9225  1299  0000  0000',
-                                    style: TextStyle(
-                                        fontSize: width * 0.06,
-                                        fontFamily: 'Roboto')),
-                          ],
-                        ),
+                    Padding(
+                      padding: EdgeInsets.all(height * 0.015),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.arrow_back_ios_sharp,
+                            color: Colors.black,
+                          ),
+                          SizedBox(
+                            width: width * 0.1,
+                          ),
+                          !showNumber
+                              ? Text('****  ****  ****  0000',
+                                  style: TextStyle(
+                                      fontSize: width * 0.06,
+                                      fontFamily: 'Roboto'))
+                              : Text('9225  1299  0000  0000',
+                                  style: TextStyle(
+                                      fontSize: width * 0.06,
+                                      fontFamily: 'Roboto')),
+                        ],
                       ),
                     ),
                     SizedBox(
@@ -152,7 +154,7 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
                             ),
                             Icon(
                               Icons.check,
-                              color: Color.fromARGB(255, 197, 171, 93),
+                              color: const Color.fromARGB(255, 197, 171, 93),
                               size: height * 0.04,
                             )
                           ],

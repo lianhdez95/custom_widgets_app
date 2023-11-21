@@ -8,11 +8,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Navigator(onGenerateRoute: (settings) {
-        return MaterialPageRoute(builder: (context) => HomePage());
-      }),
-    );
+    return MaterialApp(title: 'Material App', home: HomePage(key: Key('home')));
   }
 }

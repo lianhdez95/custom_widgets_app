@@ -1,5 +1,7 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class BandecCardWidget extends StatefulWidget {
   const BandecCardWidget({super.key});
@@ -18,7 +20,9 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
 
     return GestureDetector(
       onTap: () {
-        print('He apretado la tarjeta');
+        if (kDebugMode) {
+          print('He apretado la tarjeta');
+        }
       },
       child: Padding(
         padding: EdgeInsets.all(width * 0.05),
@@ -88,7 +92,7 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
                     ],
                   ),
                   Container(
-                    color: Color.fromARGB(70, 255, 255, 255),
+                    color: const Color.fromARGB(70, 255, 255, 255),
                     child: Padding(
                       padding: EdgeInsets.all(height * 0.015),
                       child: Row(
