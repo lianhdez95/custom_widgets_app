@@ -1,5 +1,8 @@
+import 'package:custom_widgets_app/widgets/cards/destinatarios_bandec_card.dart';
+import 'package:custom_widgets_app/widgets/cards/destinatarios_bicsa_card.dart';
 import 'package:custom_widgets_app/widgets/cards/destinatarios_bm_card.dart';
 import 'package:custom_widgets_app/widgets/cards/destinatarios_bpa_card.dart';
+import 'package:custom_widgets_app/widgets/cards/id_electricidad_card.dart';
 import 'package:flutter/material.dart';
 
 class CardsPage extends StatelessWidget {
@@ -22,7 +25,13 @@ class CardsPage extends StatelessWidget {
           children: [
             const DestinatariosBMCard(),
             SizedBox(height:height*0.01),
-            const DestinatariosBPACard()
+            const DestinatariosBPACard(),
+            SizedBox(height:height*0.01),
+            const DestinatariosBandecCard(),
+            SizedBox(height:height*0.01),
+            const DestinatariosBicsaCard(),
+            SizedBox(height:height*0.01),
+            const IdElectricidadCard(),
           ],
         ),
       ),

@@ -1,17 +1,8 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class BicsaCardWidget extends StatefulWidget {
-  const BicsaCardWidget({super.key});
-
-  @override
-  _BicsaCardWidgetState createState() => _BicsaCardWidgetState();
-}
-
-class _BicsaCardWidgetState extends State<BicsaCardWidget> {
-  bool showNumber = false;
+class DestinatariosBicsaCard extends StatelessWidget {
+  const DestinatariosBicsaCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +19,7 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
         padding: EdgeInsets.all(width * 0.05),
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          elevation: 5,
+          elevation: 20,
           shadowColor: Colors.black,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(width * 0.03),
@@ -38,11 +29,12 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
               decoration: const BoxDecoration(color: Colors.black),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(width*0.4)),
+                    borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(width * 0.33)),
                     gradient: const LinearGradient(colors: [
-                  Color.fromARGB(255, 218, 202, 155),
-                  Color.fromARGB(255, 197, 171, 93)
-                ], begin: Alignment(1.0, 0.7))),
+                      Color.fromARGB(255, 218, 202, 155),
+                      Color.fromARGB(255, 197, 171, 93)
+                    ], begin: Alignment(1.0, 0.7))),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,7 +45,7 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
                       children: [
                         Container(
                           width: width * 0.85 * 0.8,
-                          height: height * 0.22 * 0.5,
+                          height: height * 0.22 * 0.35,
                           decoration: BoxDecoration(
                             color: Colors.transparent,
                             borderRadius: BorderRadius.only(
@@ -86,16 +78,12 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
                                 color: Colors.black,
                               ),
                               iconSize: width * 0.1,
-                              onPressed: () {
-                                setState(() {
-                                  showNumber = !showNumber;
-                                });
-                              }),
+                              onPressed: () {}),
                         )
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.all(height * 0.015),
+                      padding: EdgeInsets.all(height * 0.010),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -105,62 +93,34 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
                             color: Colors.black,
                           ),
                           SizedBox(
-                            width: width * 0.1,
+                            width: width * 0.05,
                           ),
-                          !showNumber
-                              ? Text('****  ****  ****  0000',
-                                  style: TextStyle(
-                                      fontSize: width * 0.06,
-                                      fontFamily: 'Roboto'))
-                              : Text('9225  1299  0000  0000',
-                                  style: TextStyle(
-                                      fontSize: width * 0.06,
-                                      fontFamily: 'Roboto')),
+                          Text('XXXX  XXXX  XXXX  0000',
+                              style: TextStyle(
+                                  fontSize: width * 0.06, fontFamily: 'Roboto'))
                         ],
                       ),
                     ),
                     SizedBox(
-                      height: height * 0.017,
+                      height: height * 0.015,
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: width * 0.05),
+                      padding: EdgeInsets.only(left: width * 0.05, right: width * 0.05, bottom: height*0.01),
                       alignment: Alignment.centerLeft,
-                      child: Text('LIAN HERNÁNDEZ DELGADO',
-                          style: TextStyle(
-                              fontSize: height * 0.02, fontFamily: 'Roboto')),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: height * 0.01),
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            right: width * 0.05,
-                            left: width * 0.05,
-                            bottom: height * 0.01),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'CUP',
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('LIAN HERNÁNDEZ DELGADO',
                               style: TextStyle(
-                                  fontSize: height * 0.018,
-                                  fontFamily: 'Roboto'),
-                            ),
-                            Text(
-                              'VENCE: 00/00',
+                                  fontSize: height * 0.02, fontFamily: 'Roboto')),
+                          Text('CUP',
                               style: TextStyle(
-                                  fontSize: height * 0.018,
-                                  fontFamily: 'Roboto'),
-                            ),
-                            Icon(
-                              Icons.check,
-                              color: const Color.fromARGB(255, 197, 171, 93),
-                              size: height * 0.04,
-                            )
-                          ],
-                        ),
+                                color: const Color.fromARGB(255, 197, 171, 93),
+                                  fontSize: height * 0.02, fontFamily: 'Roboto')),
+                        ],
                       ),
                     ),
+                    
                   ],
                 ),
               ),

@@ -28,7 +28,7 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
         padding: EdgeInsets.all(width * 0.05),
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          elevation: 5,
+          elevation: 20,
           shadowColor: Colors.black,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(width * 0.03),
@@ -36,10 +36,13 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
           child: ClipRRect(
             child: Container(
               decoration: const BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                Color.fromARGB(255, 137, 28, 46),
-                Color.fromARGB(255, 61, 2, 12)
-              ], begin: Alignment(0.2, 0.4))),
+                  gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 118, 37, 33),
+                  Color.fromARGB(255, 218, 31, 43),
+                  Color.fromARGB(255, 126, 37, 33)
+                ],
+              )),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,7 +70,7 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                'assets/images/BANDEC_logo.png',
+                                'assets/images/bandec.png',
                                 width: width * 0.4,
                                 height: height * 0.4,
                               ),
@@ -94,7 +97,7 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
                   Container(
                     color: const Color.fromARGB(70, 255, 255, 255),
                     child: Padding(
-                      padding: EdgeInsets.all(height * 0.015),
+                      padding: EdgeInsets.all(height * 0.010),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -103,7 +106,7 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
                             width: width * 0.1,
                           ),
                           !showNumber
-                              ? Text('****  ****  ****  0000',
+                              ? Text('XXXX  XXXX  XXXX  0000',
                                   style: TextStyle(
                                       fontSize: width * 0.06,
                                       fontFamily: 'Roboto'))

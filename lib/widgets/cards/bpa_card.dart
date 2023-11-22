@@ -1,9 +1,17 @@
 // ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class DestinatariosBPACard extends StatelessWidget {
-  const DestinatariosBPACard({super.key});
+class BPACardWidget extends StatefulWidget {
+  const BPACardWidget({super.key});
+
+  @override
+  _BPACardWidgetState createState() => _BPACardWidgetState();
+}
+
+class _BPACardWidgetState extends State<BPACardWidget> {
+  bool showNumber = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +56,14 @@ class DestinatariosBPACard extends StatelessWidget {
                     children: [
                       Container(
                         width: width * 0.85 * 0.8,
-                        height: height * 0.22 * 0.30,
+                        height: height * 0.22 * 0.35,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(width * 0.03),
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.only(
-                              right: width * 0.03,
-                              left: width * 0.03,
-                              top: width * 0.03),
+                          padding: EdgeInsets.all(width * 0.03),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,9 +78,28 @@ class DestinatariosBPACard extends StatelessWidget {
                         child: IconButton(
                             icon: const Icon(Icons.more_horiz),
                             iconSize: width * 0.1,
-                            onPressed: () {}),
+                            onPressed: () {
+                              setState(() {
+                                showNumber = !showNumber;
+                              });
+                            }),
                       )
                     ],
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          gradient: const LinearGradient(colors: [
+                            Color.fromARGB(113, 41, 122, 108),
+                            Color.fromARGB(255, 24, 73, 65),
+                            Color.fromARGB(64, 41, 122, 108),
+                          ]),
+                          borderRadius: BorderRadius.horizontal(
+                              right: Radius.circular(width * 0.5))),
+                      height: height * 0.007,
+                      width: width * 0.6,
+                    ),
                   ),
                   SizedBox(
                     height: height * 0.005,
@@ -91,7 +115,7 @@ class DestinatariosBPACard extends StatelessWidget {
                           ]),
                           borderRadius: BorderRadius.horizontal(
                               left: Radius.circular(width * 0.5))),
-                      height: height * 0.005,
+                      height: height * 0.007,
                       width: width * 0.6,
                     ),
                   ),
@@ -113,11 +137,34 @@ class DestinatariosBPACard extends StatelessWidget {
                         SizedBox(
                           width: width * 0.03,
                         ),
-                        Text('XXXX  XXXX  XXXX  0000',
-                            style: TextStyle(
-                                fontSize: width * 0.06, fontFamily: 'Roboto'))
+                        !showNumber
+                            ? Text('XXXX  XXXX  XXXX  0000',
+                                style: TextStyle(
+                                    fontSize: width * 0.06, fontFamily: 'Roboto'))
+                            : Text('9225  1299  0000  0000',
+                                style: TextStyle(
+                                    fontSize: width * 0.06,
+                                    fontFamily: 'Roboto')),
                       ],
                     ),
+                  ),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          gradient: const LinearGradient(colors: [
+                            Color.fromARGB(113, 41, 122, 109),
+                            Color.fromARGB(255, 41, 122, 108),
+                            Color.fromARGB(64, 24, 73, 65)
+                          ]),
+                          borderRadius: BorderRadius.horizontal(
+                              left: Radius.circular(width * 0.5))),
+                      height: height * 0.007,
+                      width: width * 0.6,
+                    ),
+                  ),
+                  SizedBox(
+                    height: height * 0.005,
                   ),
                   Container(
                     alignment: Alignment.centerLeft,
@@ -130,24 +177,46 @@ class DestinatariosBPACard extends StatelessWidget {
                           ]),
                           borderRadius: BorderRadius.horizontal(
                               right: Radius.circular(width * 0.5))),
-                      height: height * 0.005,
+                      height: height * 0.007,
                       width: width * 0.6,
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width * 0.05, vertical: height * 0.01),
+                    padding:
+                        EdgeInsets.only(top: height * 0.01, left: width * 0.05),
                     alignment: Alignment.centerLeft,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('LIAN HERNÁNDEZ DELGADO',
+                    child: Text('LIAN HERNÁNDEZ DELGADO',
+                        style: TextStyle(
+                            fontSize: height * 0.02, fontFamily: 'Roboto')),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: height * 0.01),
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          right: width * 0.05,
+                          left: width * 0.05,
+                          bottom: height * 0.01),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'CUP',
                             style: TextStyle(
-                                fontSize: height * 0.02, fontFamily: 'Roboto')),
-                        Text('CUP',
+                                fontSize: height * 0.018, fontFamily: 'Roboto'),
+                          ),
+                          Text(
+                            'VENCE: 00/00',
                             style: TextStyle(
-                                fontSize: height * 0.02, fontFamily: 'Roboto'))
-                      ],
+                                fontSize: height * 0.018, fontFamily: 'Roboto'),
+                          ),
+                          Icon(
+                            Icons.check,
+                            color: Colors.green[900],
+                            size: height * 0.04,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],

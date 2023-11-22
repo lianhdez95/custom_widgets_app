@@ -1,7 +1,7 @@
-import 'package:custom_widgets_app/widgets/cards/bandec_card_widget.dart';
-import 'package:custom_widgets_app/widgets/cards/bicsa_card_widget.dart';
-import 'package:custom_widgets_app/widgets/cards/bm_card_widget.dart';
-import 'package:custom_widgets_app/widgets/cards/bpa_card_widget.dart';
+import 'package:custom_widgets_app/widgets/cards/bandec_card.dart';
+import 'package:custom_widgets_app/widgets/cards/bicsa_card.dart';
+import 'package:custom_widgets_app/widgets/cards/bm_card.dart';
+import 'package:custom_widgets_app/widgets/cards/bpa_card.dart';
 import 'package:flutter/material.dart';
 
 class BankCardsPage extends StatefulWidget {
