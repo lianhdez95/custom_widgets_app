@@ -17,28 +17,20 @@ class DestinatariosBMCard extends StatelessWidget {
         }
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+        padding: EdgeInsets.only(
+            top: width * 0.05, left: width * 0.05, right: width * 0.05),
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           color: const Color(0xFF9B9999),
-          elevation: 20,
-          shadowColor: Colors.black,
+          elevation: 5,
+          shadowColor: Colors.grey,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(width*0.03),
+            borderRadius: BorderRadius.circular(width * 0.03),
           ),
           child: ClipRRect(
             child: Container(
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color.fromARGB(255, 183, 197, 175),
-                    Color.fromARGB(255, 211, 227, 202)
-                  ],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  tileMode: TileMode.clamp,
-                ),
-              ),
+                  color: Color.fromARGB(255, 211, 227, 202)),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,15 +43,7 @@ class DestinatariosBMCard extends StatelessWidget {
                         width: width * 0.85 * 0.8,
                         height: height * 0.22 * 0.25,
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 101, 202, 17),
-                              Color.fromARGB(255, 122, 244, 20),
-                            ],
-                            stops: [0.1, 1.0],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                          ),
+                          color: Color.fromARGB(255, 101, 202, 17),
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(width * 0.03),
                           ),
@@ -70,11 +54,9 @@ class DestinatariosBMCard extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SvgPicture.asset(
-                                'assets/images/banmet_logo.svg',
-                                width: height * 0.04,
-                                height: height * 0.04,
-                                fit: BoxFit.cover,
+                              Image.asset(
+                                'assets/images/banmet.png',
+                                height: width * 0.1,
                               ),
                               Text('Banco Metropolitano',
                                   style: TextStyle(
@@ -90,7 +72,16 @@ class DestinatariosBMCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                      IconButton(onPressed: (){}, icon: const Icon(Icons.more_horiz))
+                      Padding(
+                        padding: EdgeInsets.only(right: width * 0.03),
+                        child: IconButton(
+                            icon: const Icon(
+                              Icons.more_horiz,
+                              color: Colors.black,
+                            ),
+                            iconSize: width * 0.1,
+                            onPressed: () {}),
+                      )
                     ],
                   ),
                   Container(
@@ -111,26 +102,34 @@ class DestinatariosBMCard extends StatelessWidget {
                           width: width * 0.03,
                         ),
                         Text('XXXX  XXX  XXX  2461',
-                                style: TextStyle(fontSize: width * 0.06, fontFamily: 'Roboto')),
-                        
+                            style: TextStyle(
+                                fontSize: width * 0.06, fontFamily: 'Roboto')),
                       ],
                     ),
                   ),
-                  SizedBox(height: height*0.02,),
+                  SizedBox(
+                    height: height * 0.02,
+                  ),
                   Container(
-                    padding: EdgeInsets.only(left: width*0.05, bottom: height*0.01, right: width*0.05),
+                    padding: EdgeInsets.only(
+                        left: width * 0.05,
+                        bottom: height * 0.01,
+                        right: width * 0.05),
                     alignment: Alignment.centerLeft,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('LIAN HERNÁNDEZ',
-                            style: TextStyle(fontSize: height * 0.02, fontFamily: 'Roboto')),
+                            style: TextStyle(
+                                fontSize: height * 0.02, fontFamily: 'Roboto')),
                         Text('CUP',
-                            style: TextStyle(fontSize: height * 0.02, fontFamily: 'Roboto')),
+                            style: TextStyle(
+                                fontSize: height * 0.02,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.w900)),
                       ],
                     ),
                   ),
-                  
                 ],
               ),
             ),

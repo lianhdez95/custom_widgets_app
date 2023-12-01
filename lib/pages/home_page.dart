@@ -1,5 +1,7 @@
 import 'package:custom_widgets_app/pages/bank_cards_page.dart';
 import 'package:custom_widgets_app/pages/cards_page.dart';
+import 'package:custom_widgets_app/pages/chat_bubbles_page.dart';
+import 'package:custom_widgets_app/pages/list_view_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -58,7 +60,13 @@ class HomePage extends StatelessWidget {
             navigationListTile(context, {
               'leading': const Icon(Icons.list_alt_outlined, color: Colors.blue),
               'title': 'ListView Page',
-              'route': null, // Agrega la ruta deseada aquí
+              'route': const ListViewPage(), // Agrega la ruta deseada aquí
+            }),
+            const Divider(),
+            navigationListTile(context, {
+              'leading': const Icon(Icons.chat_bubble, color: Colors.blue),
+              'title': 'Chat Bubbles Page',
+              'route': const ChatBubblessPage(), // Agrega la ruta deseada aquí
             }),
             const Divider(),
           ],

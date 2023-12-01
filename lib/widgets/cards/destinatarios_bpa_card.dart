@@ -17,27 +17,20 @@ class DestinatariosBPACard extends StatelessWidget {
         }
       },
       child: Padding(
-        padding: EdgeInsets.all(width * 0.05),
+        padding: EdgeInsets.only(top: width * 0.05, left: width * 0.05, right: width * 0.05),
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           color: const Color.fromARGB(255, 219, 235, 228),
-          elevation: 20,
-          shadowColor: Colors.black,
+          elevation: 5,
+          shadowColor: Colors.grey,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(width * 0.03),
           ),
           child: ClipRRect(
             child: Container(
               decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 207, 227, 232),
-                  Color.fromARGB(255, 185, 197, 192),
-                ],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                tileMode: TileMode.clamp,
-              )),
+                color: Color.fromARGB(255, 207, 227, 232),    
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,7 +41,7 @@ class DestinatariosBPACard extends StatelessWidget {
                     children: [
                       Container(
                         width: width * 0.85 * 0.8,
-                        height: height * 0.22 * 0.30,
+                        height: height * 0.22 * 0.25,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(width * 0.03),
@@ -146,7 +139,7 @@ class DestinatariosBPACard extends StatelessWidget {
                                 fontSize: height * 0.02, fontFamily: 'Roboto')),
                         Text('CUP',
                             style: TextStyle(
-                                fontSize: height * 0.02, fontFamily: 'Roboto'))
+                                fontSize: height * 0.02, fontFamily: 'Roboto', fontWeight: FontWeight.w900))
                       ],
                     ),
                   ),

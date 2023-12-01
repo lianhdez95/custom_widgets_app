@@ -39,10 +39,8 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(bottomRight: Radius.circular(width*0.4)),
-                    gradient: const LinearGradient(colors: [
-                  Color.fromARGB(255, 218, 202, 155),
-                  Color.fromARGB(255, 197, 171, 93)
-                ], begin: Alignment(1.0, 0.7))),
+                    color: Color.fromARGB(255, 197, 171, 93)
+                  ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,7 +60,6 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
                           ),
                           child: Padding(
                             padding: EdgeInsets.only(
-                                top: width * 0.03,
                                 right: width * 0.03,
                                 left: width * 0.03),
                             child: Row(
@@ -95,7 +92,7 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.all(height * 0.010),
+                      padding: EdgeInsets.symmetric(horizontal: height * 0.010),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -144,7 +141,9 @@ class _BicsaCardWidgetState extends State<BicsaCardWidget> {
                               'CUP',
                               style: TextStyle(
                                   fontSize: height * 0.018,
-                                  fontFamily: 'Roboto'),
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w900,
+                                  ),
                             ),
                             Text(
                               'VENCE: 00/00',

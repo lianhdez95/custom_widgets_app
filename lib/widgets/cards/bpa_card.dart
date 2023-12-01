@@ -29,7 +29,7 @@ class _BPACardWidgetState extends State<BPACardWidget> {
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           color: const Color.fromARGB(255, 219, 235, 228),
-          elevation: 20,
+          elevation: 5,
           shadowColor: Colors.black,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(width * 0.03),
@@ -37,15 +37,8 @@ class _BPACardWidgetState extends State<BPACardWidget> {
           child: ClipRRect(
             child: Container(
               decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 207, 227, 232),
-                  Color.fromARGB(255, 185, 197, 192),
-                ],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                tileMode: TileMode.clamp,
-              )),
+                color: Color.fromARGB(255, 207, 227, 232),    
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,7 +49,7 @@ class _BPACardWidgetState extends State<BPACardWidget> {
                     children: [
                       Container(
                         width: width * 0.85 * 0.8,
-                        height: height * 0.22 * 0.35,
+                        height: height * 0.22 * 0.30,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(width * 0.03),
@@ -183,7 +176,7 @@ class _BPACardWidgetState extends State<BPACardWidget> {
                   ),
                   Container(
                     padding:
-                        EdgeInsets.only(top: height * 0.01, left: width * 0.05),
+                        EdgeInsets.only(left: width * 0.05),
                     alignment: Alignment.centerLeft,
                     child: Text('LIAN HERNÁNDEZ DELGADO',
                         style: TextStyle(
@@ -203,7 +196,7 @@ class _BPACardWidgetState extends State<BPACardWidget> {
                           Text(
                             'CUP',
                             style: TextStyle(
-                                fontSize: height * 0.018, fontFamily: 'Roboto'),
+                                fontSize: height * 0.018, fontFamily: 'Roboto', fontWeight: FontWeight.w900),
                           ),
                           Text(
                             'VENCE: 00/00',

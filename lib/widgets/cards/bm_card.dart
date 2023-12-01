@@ -30,23 +30,15 @@ class _BMCardWidgetState extends State<BMCardWidget> {
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           color: const Color(0xFF9B9999),
-          elevation: 20,
-          shadowColor: Colors.black,
+          elevation: 5,
+          shadowColor: Colors.grey,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(width * 0.03),
           ),
           child: ClipRRect(
             child: Container(
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color.fromARGB(255, 183, 197, 175),
-                    Color.fromARGB(255, 211, 227, 202)
-                  ],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  tileMode: TileMode.clamp,
-                ),
+                color: Color.fromARGB(255, 211, 227, 202)
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -60,15 +52,7 @@ class _BMCardWidgetState extends State<BMCardWidget> {
                         width: width * 0.85 * 0.8,
                         height: height * 0.22 * 0.35,
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 101, 202, 17),
-                              Color.fromARGB(255, 122, 244, 20),
-                            ],
-                            stops: [0.1, 1.0],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                          ),
+                          color: Color.fromARGB(255, 101, 202, 17),
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(width * 0.03),
                           ),
@@ -117,7 +101,7 @@ class _BMCardWidgetState extends State<BMCardWidget> {
                           scaleY: 2.5,
                           child: Icon(
                             Icons.arrow_left,
-                            color: const Color.fromARGB(255, 122, 244, 20),
+                            color: Color.fromARGB(255, 101, 202, 17),
                             size: height * 0.05,
                           ),
                         ),
@@ -135,9 +119,6 @@ class _BMCardWidgetState extends State<BMCardWidget> {
                                     fontFamily: 'Roboto')),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: height * 0.02,
                   ),
                   Container(
                     padding:
@@ -161,7 +142,7 @@ class _BMCardWidgetState extends State<BMCardWidget> {
                           Text(
                             'CUP',
                             style: TextStyle(
-                                fontSize: height * 0.018, fontFamily: 'Roboto'),
+                                fontSize: height * 0.018, fontFamily: 'Roboto', fontWeight: FontWeight.w900),
                           ),
                           Text(
                             'VENCE: 00/00',

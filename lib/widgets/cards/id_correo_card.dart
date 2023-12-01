@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class IdElectricidadCard extends StatelessWidget {
-  const IdElectricidadCard({super.key});
+class IdCorreoCard extends StatelessWidget {
+  const IdCorreoCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +24,15 @@ class IdElectricidadCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'assets/images/ic_pago_electricidad.png',
-                      height: height * 0.08,
-                      width: height * 0.08,
+                    CircleAvatar(
+                      radius: height*0.04,
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/images/correos.png',
+                          height: height * 0.08,
+                          width: height * 0.08,
+                        ),
+                      ),
                     ),
                     SizedBox(width: width * 0.05),
                     Column(

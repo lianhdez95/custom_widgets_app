@@ -28,7 +28,7 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
         padding: EdgeInsets.all(width * 0.05),
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          elevation: 20,
+          elevation: 5,
           shadowColor: Colors.black,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(width * 0.03),
@@ -53,7 +53,7 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
                     children: [
                       Container(
                         width: width * 0.85 * 0.8,
-                        height: height * 0.22 * 0.5,
+                        height: height * 0.22 * 0.4,
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                           borderRadius: BorderRadius.only(
@@ -71,8 +71,8 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
                             children: [
                               Image.asset(
                                 'assets/images/bandec.png',
-                                width: width * 0.4,
-                                height: height * 0.4,
+                                width: width * 0.3,
+                                height: height * 0.3,
                               ),
                             ],
                           ),
@@ -143,7 +143,7 @@ class _BandecCardWidgetState extends State<BandecCardWidget> {
                           Text(
                             'CUP',
                             style: TextStyle(
-                                fontSize: height * 0.018, fontFamily: 'Roboto'),
+                                fontSize: height * 0.018, fontFamily: 'Roboto', fontWeight: FontWeight.w900),
                           ),
                           Text(
                             'VENCE: 00/00',

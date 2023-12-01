@@ -16,11 +16,12 @@ class DestinatariosBicsaCard extends StatelessWidget {
         }
       },
       child: Padding(
-        padding: EdgeInsets.all(width * 0.05),
+        padding: EdgeInsets.only(
+            top: width * 0.05, left: width * 0.05, right: width * 0.05),
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          elevation: 20,
-          shadowColor: Colors.black,
+          elevation: 5,
+          shadowColor: Colors.grey,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(width * 0.03),
           ),
@@ -31,10 +32,7 @@ class DestinatariosBicsaCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(width * 0.33)),
-                    gradient: const LinearGradient(colors: [
-                      Color.fromARGB(255, 218, 202, 155),
-                      Color.fromARGB(255, 197, 171, 93)
-                    ], begin: Alignment(1.0, 0.7))),
+                    color: Color.fromARGB(255, 197, 171, 93)),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,25 +100,31 @@ class DestinatariosBicsaCard extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: height * 0.015,
+                      height: height * 0.01,
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: width * 0.05, right: width * 0.05, bottom: height*0.01),
+                      padding: EdgeInsets.only(
+                          left: width * 0.05,
+                          right: width * 0.05,
+                          bottom: height * 0.01),
                       alignment: Alignment.centerLeft,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('LIAN HERNÁNDEZ DELGADO',
                               style: TextStyle(
-                                  fontSize: height * 0.02, fontFamily: 'Roboto')),
+                                  fontSize: height * 0.02,
+                                  fontFamily: 'Roboto')),
                           Text('CUP',
                               style: TextStyle(
-                                color: const Color.fromARGB(255, 197, 171, 93),
-                                  fontSize: height * 0.02, fontFamily: 'Roboto')),
+                                  color:
+                                      const Color.fromARGB(255, 197, 171, 93),
+                                  fontSize: height * 0.02,
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w900)),
                         ],
                       ),
                     ),
-                    
                   ],
                 ),
               ),

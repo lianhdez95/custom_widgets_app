@@ -17,11 +17,11 @@ class DestinatariosBandecCard extends StatelessWidget {
         }
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+        padding: EdgeInsets.only(top: width * 0.05, left: width * 0.05, right: width * 0.05),
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          elevation: 20,
-          shadowColor: Colors.black,
+          elevation: 5,
+          shadowColor: Colors.grey,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(width * 0.03),
           ),
@@ -101,7 +101,7 @@ class DestinatariosBandecCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: height * 0.017,
+                    height: height * 0.01,
                   ),
                   Container(
                     padding: EdgeInsets.only(left: width * 0.05, right: width * 0.05, bottom: height * 0.01),
@@ -113,7 +113,7 @@ class DestinatariosBandecCard extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: height * 0.02, fontFamily: 'Roboto')),
                         Text('CUP', style: TextStyle(
-                                fontSize: height * 0.02, fontFamily: 'Roboto'))
+                                fontSize: height * 0.02, fontFamily: 'Roboto', fontWeight: FontWeight.w900))
                       ],
                     ),
                   ),
