@@ -12,6 +12,7 @@ class IdCorreoCard extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: width * 0.05),
         child: Card(
+          surfaceTintColor: Colors.white,
           color: Colors.white,
           elevation: 5,
           shape: RoundedRectangleBorder(

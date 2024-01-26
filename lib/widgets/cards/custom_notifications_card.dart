@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -60,7 +59,7 @@ class CustomNotificationsCard extends StatelessWidget {
                         width: width * 0.02,
                       ),
                       Text(
-                        'Hace un momento',
+                        'Hace un momento', //Tiempo transcurrido desde que se recibió la notificación
                         style:
                             TextStyle(color: Colors.grey, fontFamily: 'Roboto', fontSize: width * 0.03),
                       ),

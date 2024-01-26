@@ -34,7 +34,7 @@ class CustomNotificationsCard2 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
 
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.facebook,
                     color: Colors.blue,
                   ),
@@ -57,7 +57,7 @@ class CustomNotificationsCard2 extends StatelessWidget {
                     width: width * 0.02,
                   ),
                   Text(
-                    'Hace 1 hora',
+                    'Enviado a las ${hour.toString()}:${minute.toString()}', //Tiempo transcurrido desde que se recibió la notificación
                     style:
                         TextStyle(color: Colors.grey, fontFamily: 'Roboto', fontSize: width * 0.03),
                   )
