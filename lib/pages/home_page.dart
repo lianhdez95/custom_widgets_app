@@ -69,6 +69,12 @@ class HomePage extends StatelessWidget {
               'route': const ChatBubblessPage(), // Agrega la ruta deseada aquí
             }),
             const Divider(),
+            navigationListTile(context, {
+              'leading': const Icon(Icons.smart_button_sharp, color: Colors.blue),
+              'title': 'Buttons Page',
+              'route': null, // Agrega la ruta deseada aquí
+            }),
+            const Divider(),
           ],
         ),
       ),

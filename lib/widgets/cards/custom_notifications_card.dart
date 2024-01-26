@@ -15,6 +15,7 @@ class CustomNotificationsCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Card(
+        surfaceTintColor: Colors.white,
         color: Colors.white,
         elevation: 5,
         shadowColor: Colors.black,
@@ -30,6 +31,7 @@ class CustomNotificationsCard extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
                     'assets/images/logo3.png',
@@ -38,25 +40,31 @@ class CustomNotificationsCard extends StatelessWidget {
                   SizedBox(
                     width: width * 0.01,
                   ),
-                  Text(
-                    'ENZONA',
-                    style: TextStyle(color: Colors.blue, fontFamily: 'Roboto'),
-                  ),
-                  SizedBox(
-                    width: width * 0.02,
-                  ),
-                  Icon(
-                    Icons.circle,
-                    color: Colors.grey,
-                    size: width * 0.01,
-                  ),
-                  SizedBox(
-                    width: width * 0.02,
-                  ),
-                  Text(
-                    'Hace un momento',
-                    style:
-                        TextStyle(color: Colors.grey, fontSize: width * 0.03),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      
+                      Text(
+                        'ENZONA',
+                        style: TextStyle(color: Colors.blue, fontFamily: 'Roboto', fontSize: width * 0.03),
+                      ),
+                      SizedBox(
+                        width: width * 0.02,
+                      ),
+                      Icon(
+                        Icons.circle,
+                        color: Colors.grey,
+                        size: width * 0.01,
+                      ),
+                      SizedBox(
+                        width: width * 0.02,
+                      ),
+                      Text(
+                        'Hace un momento',
+                        style:
+                            TextStyle(color: Colors.grey, fontFamily: 'Roboto', fontSize: width * 0.03),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -100,7 +108,7 @@ class CustomNotificationsCard extends StatelessWidget {
                       height: height * 0.01,
                       color: Colors.transparent,
                     ),
-                    AttachmentWidget(
+                    const AttachmentWidget(
                         fileName: 'Documento',
                         fileSize: '2.2 mb',
                         fileType: '.doc'),
@@ -111,11 +119,11 @@ class CustomNotificationsCard extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        TextButton(onPressed: () {}, child: Text('ACEPTAR')),
+                        TextButton(onPressed: () {}, child: const Text('ACEPTAR', style: TextStyle(color: Colors.blue),)),
                         SizedBox(
                           width: width * 0.05,
                         ),
-                        TextButton(onPressed: () {}, child: Text('CANCELAR')),
+                        TextButton(onPressed: () {}, child: const Text('CANCELAR', style: TextStyle(color: Colors.blue))),
                       ],
                     ),
                     Container(
@@ -157,7 +165,7 @@ class AttachmentWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Colors.blue[50],
+          color: const Color.fromARGB(255, 240, 249, 255),
           borderRadius: BorderRadiusDirectional.circular(width * 0.02)),
       padding: EdgeInsets.all(width * 0.01),
       child: Row(

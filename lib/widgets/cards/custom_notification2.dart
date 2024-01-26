@@ -15,6 +15,7 @@ class CustomNotificationsCard2 extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Card(
+        surfaceTintColor: Colors.white,
         color: Colors.white,
         elevation: 5,
         shadowColor: Colors.black,
@@ -30,6 +31,8 @@ class CustomNotificationsCard2 extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+
                 children: [
                   Icon(
                     Icons.facebook,
@@ -40,7 +43,7 @@ class CustomNotificationsCard2 extends StatelessWidget {
                   ),
                   Text(
                     'Facebook',
-                    style: TextStyle(color: Colors.blue, fontFamily: 'Roboto'),
+                    style: TextStyle(color: Colors.blue, fontFamily: 'Roboto', fontSize: width * 0.03),
                   ),
                   SizedBox(
                     width: width * 0.02,
@@ -53,23 +56,31 @@ class CustomNotificationsCard2 extends StatelessWidget {
                   SizedBox(
                     width: width * 0.02,
                   ),
-                  Text('Hace 1 hora', style: TextStyle(color: Colors.grey, fontSize: width*0.03),)
+                  Text(
+                    'Hace 1 hora',
+                    style:
+                        TextStyle(color: Colors.grey, fontFamily: 'Roboto', fontSize: width * 0.03),
+                  )
                 ],
               ),
               SizedBox(
-                    height: width * 0.02,
-                  ),
+                height: width * 0.02,
+              ),
               Container(
                 padding: EdgeInsets.only(top: height * 0.004),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    
-                    CircleAvatar(backgroundColor: Colors.blue,),
+                    const CircleAvatar(
+                        backgroundColor: Colors.blue,
+                        child: Text(
+                          'TI',
+                          style: TextStyle(color: Colors.white),
+                        )),
                     SizedBox(
-                    width: width * 0.02,
-                  ),
+                      width: width * 0.02,
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -77,7 +88,6 @@ class CustomNotificationsCard2 extends StatelessWidget {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            
                             Text(
                               ' Title',
                               style: TextStyle(
