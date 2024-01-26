@@ -1,5 +1,4 @@
-import 'package:custom_widgets_app/widgets/cards/custom_chat_bubble1.dart';
-import 'package:custom_widgets_app/widgets/cards/custom_chat_bubble2.dart';
+
 import 'package:custom_widgets_app/widgets/cards/custom_notification2.dart';
 import 'package:custom_widgets_app/widgets/cards/custom_notifications_card.dart';
 import 'package:custom_widgets_app/widgets/cards/destinatarios_bandec_card.dart';

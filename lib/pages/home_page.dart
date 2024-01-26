@@ -75,6 +75,12 @@ class HomePage extends StatelessWidget {
               'route': null, // Agrega la ruta deseada aquí
             }),
             const Divider(),
+            navigationListTile(context, {
+              'leading': const Icon(Icons.input, color: Colors.blue),
+              'title': 'Text Inputs Page',
+              'route': null, // Agrega la ruta deseada aquí
+            }),
+            const Divider(),
           ],
         ),
       ),

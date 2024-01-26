@@ -1,5 +1,5 @@
-import 'package:custom_widgets_app/widgets/cards/custom_chat_bubble1.dart';
-import 'package:custom_widgets_app/widgets/cards/custom_chat_bubble2.dart';
+import 'package:custom_widgets_app/widgets/bubbles/custom_chat_bubble1.dart';
+import 'package:custom_widgets_app/widgets/bubbles/custom_chat_bubble2.dart';
 import 'package:flutter/material.dart';
 
 class ChatBubblessPage extends StatelessWidget {
