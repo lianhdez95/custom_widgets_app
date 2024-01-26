@@ -17,8 +17,8 @@ class OnatListTilePagado extends StatelessWidget {
           width: height * 0.08,
         ),
       ),
-      title: Text('Id. Cliente'),
-      subtitle: Column(
+      title: const Text('Id. Cliente'),
+      subtitle: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Nombre del cliente'),

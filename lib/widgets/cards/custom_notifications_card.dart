@@ -128,7 +128,7 @@ class CustomNotificationsCard extends StatelessWidget {
                     Container(
                         alignment: Alignment.centerRight,
                         child: IconButton(
-                          icon: Icon(Icons.keyboard_arrow_down_rounded),
+                          icon: const Icon(Icons.keyboard_arrow_down_rounded),
                           onPressed: () {},
                           splashColor: Colors.blue[300],
                           splashRadius: width * 0.05,
@@ -204,7 +204,7 @@ class AttachmentWidget extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               Icons.download,
               color: Colors.blue,
             ),
