@@ -23,7 +23,7 @@ class CardsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cards Page'),
+        title: const Text('Cards'),
       ),
 
       body: Container(
