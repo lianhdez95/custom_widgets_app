@@ -8,7 +8,7 @@ class ListViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ListViewPage'),
+        title: Text('List Views'),
       ),
       body: ListView(
         children: [

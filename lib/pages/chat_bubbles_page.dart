@@ -11,7 +11,7 @@ class ChatBubblessPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat Bubbles Page'),
+        title: const Text('Chat Bubbles'),
       ),
 
       body: Container(

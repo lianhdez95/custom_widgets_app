@@ -8,7 +8,7 @@ class InputsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Inputs Page'),
+        title: const Text('Inputs'),
       ),
       body: Container(
         alignment: Alignment.center,

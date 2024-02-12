@@ -20,7 +20,7 @@ class _BankCardsPageState extends State<BankCardsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Card Page'),
+        title: const Text('Bank Cards'),
       ),
       body: Container(
         alignment: Alignment.topCenter,
