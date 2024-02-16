@@ -13,7 +13,7 @@ class InputsPage extends StatelessWidget {
       body: Container(
         alignment: Alignment.center,
         child: ListView(
-          children: [
+          children: const [
             InputText1()
           ],
         ),
