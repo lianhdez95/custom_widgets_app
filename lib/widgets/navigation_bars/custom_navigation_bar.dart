@@ -19,7 +19,7 @@ class CustomButtonNavigationBar extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: Color.fromRGBO(31, 148, 212, 1),
+            color: Colors.cyan.shade600,
             borderRadius: BorderRadius.circular(30.0),
           ),
           child: Row(
@@ -34,7 +34,7 @@ class CustomButtonNavigationBar extends StatelessWidget {
                   color:
                       index == 1 ? Color.fromRGBO(14, 40, 89, 1) : Colors.white,
                   onPressed: () => onIndexSelected(1),
-                  icon: Icon(Icons.home, size: width*0.1,)),
+                  icon: Icon(Icons.list_alt_rounded, size: width*0.1,)),
               // Icon(Icons.home),
 
               IconButton(
@@ -49,7 +49,14 @@ class CustomButtonNavigationBar extends StatelessWidget {
                   color:
                       index == 3 ? Color.fromRGBO(14, 40, 89, 1) : Colors.white,
                   onPressed: () => onIndexSelected(3),
-                  icon: Icon(Icons.person, size: width*0.1,)
+                  icon: Icon(Icons.qr_code, size: width*0.1,)
+                  // Icon(Icons.group),
+                  ),
+              IconButton(
+                  color:
+                      index == 4 ? Color.fromRGBO(14, 40, 89, 1) : Colors.white,
+                  onPressed: () => onIndexSelected(4),
+                  icon: Icon(Icons.bar_chart_rounded, size: width*0.1,)
                   // Icon(Icons.group),
                   ),
             ],

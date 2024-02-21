@@ -5,6 +5,13 @@ import 'package:intl/intl.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+/*Detalles a tener en cuenta:
+-Cambiar el color del botón AC a rojo
+-En lugar de CE, intentar mostrar el icono de borrar.
+Almacenar número de operación para reutilizarlo.
+
+ */
+
 class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({super.key});
 

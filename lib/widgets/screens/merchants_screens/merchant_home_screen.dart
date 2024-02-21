@@ -1,7 +1,9 @@
 import 'package:custom_widgets_app/widgets/navigation_bars/custom_navigation_bar.dart';
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/calculator_screen.dart';
+import 'package:custom_widgets_app/widgets/screens/merchants_screens/merchant_stats_screen.dart';
+import 'package:custom_widgets_app/widgets/screens/merchants_screens/merchants_list_screen.dart';
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/payments_screen.dart';
-import 'package:custom_widgets_app/widgets/screens/merchants_screens/profile_screen.dart';
+import 'package:custom_widgets_app/widgets/screens/merchants_screens/merchant_qr_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -14,10 +16,11 @@ class MerchantHomeScreen extends StatefulWidget {
 
 class _MerchantHomeScreenState extends State<MerchantHomeScreen> {
   final List<Map<String, dynamic>> _screens = [
-    {'screen': null, 'title': ''},
-    {'screen': const PaymentsScreen(), 'title': 'Pagos'},
-    {'screen': const CalculatorScreen(), 'title': 'Calculadora'},
-    {'screen': const ProfileScreen(), 'title': 'QR COmercio'},
+    {'screen': const MerchantsListScreen()},
+    {'screen': const PaymentsScreen()},
+    {'screen': const CalculatorScreen()},
+    {'screen': const ProfileScreen()},
+    {'screen': MerchantStatsScreen()},
   ];
 
   int _selectedScreenIndex = 0;
@@ -36,25 +39,7 @@ class _MerchantHomeScreenState extends State<MerchantHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Row(
-        //     children: [
-        //       CircleAvatar(),
-        //       Gap(10),
-        //       Text(_screens[_selectedScreenIndex]['title'],
-        //           style: TextStyle(fontWeight: FontWeight.bold)),
-        //     ],
-        //   ),
-
-        //   foregroundColor: Colors.white,
-        //   flexibleSpace: Container(
-        //     decoration: BoxDecoration(
-        //         gradient: LinearGradient(
-        //             begin: Alignment.centerLeft,
-        //             end: Alignment.centerRight,
-        //             colors: [Colors.cyan.shade800, Colors.cyan.shade400])),
-        //   ),
-        // ),
+        
         body: _screens[_selectedScreenIndex]['screen'],
         bottomNavigationBar: CustomButtonNavigationBar(
           index: _selectedScreenIndex,
