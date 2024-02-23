@@ -4,8 +4,8 @@ import 'package:custom_widgets_app/pages/cards_page.dart';
 import 'package:custom_widgets_app/pages/chat_bubbles_page.dart';
 import 'package:custom_widgets_app/pages/inputs_page.dart';
 import 'package:custom_widgets_app/pages/list_view_page.dart';
-import 'package:custom_widgets_app/pages/my_home_page.dart';
 import 'package:custom_widgets_app/pages/navigation_bars_page.dart';
+import 'package:custom_widgets_app/pages/screens_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -50,45 +50,51 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             navigationListTile(context, {
-              'leading': const Icon(Icons.credit_card),
-              'title': 'Cards Page',
+              'leading': const Icon(Icons.credit_card, color: Colors.red,),
+              'title': 'Cards',
               'route': const CardsPage(),
             }),
             const Divider(),
             navigationListTile(context, {
-              'leading': const Icon(Icons.calendar_view_day),
-              'title': 'Bank Cards Page',
+              'leading': const Icon(Icons.calendar_view_day, color: Colors.red,),
+              'title': 'Bank Cards',
               'route': const BankCardsPage(),
             }),
             const Divider(),
             navigationListTile(context, {
-              'leading': const Icon(Icons.list_alt_outlined),
-              'title': 'ListView Page',
+              'leading': const Icon(Icons.list_alt_outlined, color: Colors.red,),
+              'title': 'ListView',
               'route': const ListViewPage(), // Agrega la ruta deseada aquí
             }),
             const Divider(),
             navigationListTile(context, {
-              'leading': const Icon(Icons.chat_bubble),
-              'title': 'Chat Bubbles Page',
+              'leading': const Icon(Icons.chat_bubble, color: Colors.red,),
+              'title': 'Chat Bubbles',
               'route': const ChatBubblessPage(), // Agrega la ruta deseada aquí
             }),
             const Divider(),
             navigationListTile(context, {
-              'leading': const Icon(Icons.smart_button_sharp),
-              'title': 'Buttons Page',
+              'leading': const Icon(Icons.smart_button_sharp, color: Colors.red,),
+              'title': 'Buttons',
               'route': const ButtonsPage(), // Agrega la ruta deseada aquí
             }),
             const Divider(),
             navigationListTile(context, {
-              'leading': const Icon(Icons.input),
-              'title': 'Text Inputs Page',
+              'leading': const Icon(Icons.input, color: Colors.red,),
+              'title': 'Text Inputs',
               'route': const InputsPage(), // Agrega la ruta deseada aquí
             }),
             const Divider(),
             navigationListTile(context, {
-              'leading': const Icon(Icons.navigation_rounded),
+              'leading': const Icon(Icons.navigation_rounded, color: Colors.red,),
               'title': 'Navigation Bars',
               'route': const NavigationBarsPage(), // Agrega la ruta deseada aquí
+            }),
+            const Divider(),
+            navigationListTile(context, {
+              'leading': const Icon(Icons.mobile_screen_share, color: Colors.red,),
+              'title': 'Screens',
+              'route': const ScreensPage(), // Agrega la ruta deseada aquí
             }),
             const Divider(),
           ],
@@ -111,7 +117,7 @@ class HomePage extends StatelessWidget {
       },
       leading: params['leading'],
       title: Text(params['title']),
-      trailing: const Icon(Icons.arrow_forward_ios_rounded),
+      trailing: const Icon(Icons.arrow_forward_ios_rounded, color: Colors.red,),
     );
   }
 }
