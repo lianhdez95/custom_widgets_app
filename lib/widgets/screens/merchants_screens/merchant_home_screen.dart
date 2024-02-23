@@ -2,6 +2,7 @@ import 'package:custom_widgets_app/widgets/navigation_bars/custom_navigation_bar
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/calculator_screen.dart';
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/merchant_stats_screen.dart';
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/merchants_list_screen.dart';
+import 'package:custom_widgets_app/widgets/screens/merchants_screens/new_calculator_screen.dart';
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/payments_screen.dart';
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/merchant_qr_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _MerchantHomeScreenState extends State<MerchantHomeScreen> {
   final List<Map<String, dynamic>> _screens = [
     {'screen': const MerchantsListScreen()},
     {'screen': const PaymentsScreen()},
-    {'screen': const CalculatorScreen()},
+    {'screen': const NewCalculatorScreen()},
     {'screen': const ProfileScreen()},
     {'screen': MerchantStatsScreen()},
   ];

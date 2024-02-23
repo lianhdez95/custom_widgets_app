@@ -35,23 +35,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Colors.cyan) 
+                // backgroundColor: MaterialStatePropertyAll(Colors.cyan) 
               ),
               child: Row(
                 children: [
                   Image.asset(
-                    'assets/images/logo4.png',
+                    'assets/images/icono_ez2.png',
                     width: width * 0.10,
                     height: height * 0.10,
                   ),
                   SizedBox(width: width*0.1,),
-                  Text('ENZONA', style: TextStyle(fontSize: height*0.03, color: Colors.white),)
+                  Text('ENZONA', style: TextStyle(fontSize: height*0.03, color: Colors.black),)
                 ],
               ),
             ),
             SizedBox(height: height*0.02,),
             ElevatedButton(
               onPressed: () {},
+              
               style: ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(Colors.white) 
               ),
@@ -63,7 +64,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: height * 0.10,
                   ),
                   SizedBox(width: width*0.1,),
-                  Text('Transfermóvil', style: TextStyle(fontSize: height*0.03, color: Colors.black),)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Transfermóvil', style: TextStyle(fontSize: height*0.03, color: Colors.black),),
+                      Text('Para obtener el qr, consulte con su proveedor', style: TextStyle(fontSize: height*0.013, color: Colors.black),),
+                      
+                    ],
+                  ),
                 ],
               ),
             )

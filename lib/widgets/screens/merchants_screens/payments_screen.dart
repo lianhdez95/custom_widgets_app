@@ -66,7 +66,7 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
                     itemBuilder: (context, index) {
                       return ListTile(
                         leading: const CircleAvatar(
-                          child: Icon(Icons.shopify),
+                          child: Icon(Icons.person),
                         ),
                         title: Text(merchants![index].alias),
                         subtitle: Text(merchants![index].name),

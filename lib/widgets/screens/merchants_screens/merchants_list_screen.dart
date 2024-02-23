@@ -60,7 +60,7 @@ class _MerchantsListScreenState extends State<MerchantsListScreen> {
                   padding: EdgeInsets.only(top: height * 0.1),
                   width: double.infinity,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.only(right: 15.0, left: 15.0, bottom: 15.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -114,6 +114,7 @@ class _MerchantsListScreenState extends State<MerchantsListScreen> {
                   )),
             ),
             Container(
+              padding: const EdgeInsets.only(top: 10),
                 height: height * 0.65,
                 decoration: BoxDecoration(
                     color: Colors.white,

@@ -16,10 +16,10 @@ class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({super.key});
 
   @override
-  State<CalculatorScreen> createState() => _CalculatorScreenState();
+  State<CalculatorScreen> createState() => CalculatorScreenState();
 }
 
-class _CalculatorScreenState extends State<CalculatorScreen> {
+class CalculatorScreenState extends State<CalculatorScreen> {
   String result = '0';
   double toPay = 0.00;
   String toParseInputUser = '';
@@ -134,66 +134,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Container(
-          height: 60,
-          width: 80,
-          child: RawMaterialButton(
-            onPressed: () {
-              if (text1 == 'AC') {
-                setState(() {
-                  error = false;
-                  qrVisibility = false;
-                  hasFocus = false;
-                  isSelected = false;
-                  toParseInputUser = '';
-                  realInputUser = '';
-                  result = '0';
-                });
-              } else {
-                buttonPressed(text1);
-              }
-            },
-            elevation: 2.0,
-            fillColor: getBackgroundColor(text1),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            child: Text(
-              text1,
-              style: TextStyle(
-                  color: getTextColor(text1),
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
         ),
         Container(
-          height: 60,
-          width: 80,
-          child: RawMaterialButton(
-              onPressed: () {
-                if (text2 == 'CE') {
-                  setState(() {
-                    if (toParseInputUser.isNotEmpty) {
-                      toParseInputUser = toParseInputUser.substring(
-                          0, toParseInputUser.length - 1);
-                      realInputUser =
-                          realInputUser.substring(0, realInputUser.length - 1);
-                    }
-                  });
-                } else {
-                  buttonPressed(text2);
-                }
-              },
-              elevation: 2.0,
-              fillColor: getBackgroundColor(text2),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text(
-                text2,
-                style: TextStyle(
-                    color: getTextColor(text2),
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-              )),
         ),
         Container(
           height: 60,
@@ -215,61 +157,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             ),
           ),
         ),
-        Container(
-          height: 60,
-          width: 80,
-          child: RawMaterialButton(
-            onPressed: () {
-              try {
-                if (text4 == '=') {
-                  Parser parser = Parser();
-                  String expressionString = toParseInputUser.replaceAll('%',
-                      '*0.01'); // Reemplazar "%" con "*0.01" para calcular el porcentaje
-                  Expression expression = parser.parse(expressionString);
-                  ContextModel contextModel = ContextModel();
-                  double eval =
-                      expression.evaluate(EvaluationType.REAL, contextModel);
-                  setState(() {
-                    if (!eval.isNaN) {
-                      error = false;
-                    }
-                    hasFocus = true;
-                    isSelected = true;
-                    result = eval.toString();
-                    if (!result.contains('-')) {
-                      qrVisibility = true;
-                      hasFloatingActionButton = true;
-                    }
-                    toPay = eval * 10 / 100;
-                  });
-                } else {
-                  buttonPressed(text4);
-                }
-              } catch (e) {
-                setState(() {
-                  error = true;
-                  result = 'Error de operación';
-                });
-              }
-            },
-            elevation: 2.0,
-            fillColor: Colors.blue.shade900,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            child: Text(
-              text4,
-              style: const TextStyle(
-                  fontSize: 40,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-        )
+        Container()
       ],
     );
   }
 
-  bool isOprator(String text) {
+  bool isOprator(dynamic text) {
     var list = ['AC', 'CE', '%'];
 
     for (var item in list) {
@@ -288,11 +181,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     }
   }
 
-  bool TextOprator(String text) {
-    var list = ['AC', 'CE', '%'];
+  bool TextOprator(dynamic value) {
+    var list = ['AC', Icons.backspace, '%'];
 
     for (var item in list) {
-      if (text == item) {
+      if (value == item) {
         return true;
       }
     }
@@ -362,17 +255,21 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                 ),
               ],
             ),
+
+            //TODO: CAmbiar el CE por el icono de backspace    
+
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const Gap(10),
-                getRow('AC', 'CE', '%', '/', focusNode!, context),
+                getRow('AC', 'CE', '', '/', focusNode!, context),
                 const Gap(10),
-                getRow('1', '2', '3', '*', focusNode!, context),
+                getRow('7', '8', '9', '+', focusNode!, context),
+                
                 const Gap(10),
                 getRow('4', '5', '6', '-', focusNode!, context),
                 const Gap(10),
-                getRow('7', '8', '9', '+', focusNode!, context),
+                getRow('1', '2', '3', '*', focusNode!, context),
                 const Gap(10),
                 getRow('00', '0', '.', '=', focusNode!, context),
               ],

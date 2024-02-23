@@ -27,19 +27,19 @@ class CustomButtonNavigationBar extends StatelessWidget {
             children: [
               IconButton(
                   color:
-                      index == 0 ? Color.fromRGBO(14, 40, 89, 1) : Colors.white,
+                      index == 0 ? Colors.cyan.shade900 : Colors.white,
                   onPressed: () => onIndexSelected(0),
                   icon: Icon(Icons.store_mall_directory_sharp, size: width*0.1,)),
               IconButton(
                   color:
-                      index == 1 ? Color.fromRGBO(14, 40, 89, 1) : Colors.white,
+                      index == 1 ? Colors.cyan.shade900 : Colors.white,
                   onPressed: () => onIndexSelected(1),
                   icon: Icon(Icons.list_alt_rounded, size: width*0.1,)),
               // Icon(Icons.home),
 
               IconButton(
                   color:
-                      index == 2 ? Color.fromRGBO(14, 40, 89, 1) : Colors.white,
+                      index == 2 ? Colors.cyan.shade900 : Colors.white,
                   onPressed: () => onIndexSelected(2),
                   icon: Icon(Icons.calculate, size: width*0.1,)
                   // Icon(Icons.notifications)
@@ -47,14 +47,14 @@ class CustomButtonNavigationBar extends StatelessWidget {
                   ),
               IconButton(
                   color:
-                      index == 3 ? Color.fromRGBO(14, 40, 89, 1) : Colors.white,
+                      index == 3 ? Colors.cyan.shade900 : Colors.white,
                   onPressed: () => onIndexSelected(3),
                   icon: Icon(Icons.qr_code, size: width*0.1,)
                   // Icon(Icons.group),
                   ),
               IconButton(
                   color:
-                      index == 4 ? Color.fromRGBO(14, 40, 89, 1) : Colors.white,
+                      index == 4 ? Colors.cyan.shade900 : Colors.white,
                   onPressed: () => onIndexSelected(4),
                   icon: Icon(Icons.bar_chart_rounded, size: width*0.1,)
                   // Icon(Icons.group),
