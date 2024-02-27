@@ -30,7 +30,6 @@ class ScreensPage extends StatelessWidget {
                   );
                 },
               ),
-              const Divider(),
               
             ],
           ),

@@ -1,5 +1,4 @@
 import 'package:custom_widgets_app/widgets/navigation_bars/custom_navigation_bar.dart';
-import 'package:custom_widgets_app/widgets/screens/merchants_screens/calculator_screen.dart';
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/merchant_stats_screen.dart';
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/merchants_list_screen.dart';
 import 'package:custom_widgets_app/widgets/screens/merchants_screens/new_calculator_screen.dart';

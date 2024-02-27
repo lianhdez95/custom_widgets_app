@@ -25,7 +25,7 @@ class CustomNotificationsCard extends StatelessWidget {
                 bottomLeft: Radius.circular(width * 0.025),
                 bottomRight: Radius.circular(width * 0.025))),
         child: Container(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
               Row(
@@ -69,7 +69,7 @@ class CustomNotificationsCard extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.only(top: height * 0.01),
+                // padding: EdgeInsets.only(top: height * 0.01),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -78,7 +78,7 @@ class CustomNotificationsCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.circle_notifications_rounded,
+                          Icons.person,
                           color: Colors.blue,
                           size: width * 0.06,
                         ),
@@ -86,7 +86,7 @@ class CustomNotificationsCard extends StatelessWidget {
                           width: width * 0.02,
                         ),
                         Text(
-                          ' Title',
+                          ' Customer',
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: width * 0.04,
@@ -99,41 +99,41 @@ class CustomNotificationsCard extends StatelessWidget {
                       color: Colors.transparent,
                     ),
                     Text(
-                      'Texto de prueba Texto de prueba Texto de prueba Texto de prueba Texto de prueba Texto de prueba Texto de prueba Texto de prueba Texto de prueba Texto de prueba Texto de prueba',
+                      'Duis sint exercitation ea non laboris ipsum incididunt in velit proident eiusmod.',
                       style: TextStyle(
                           color: Colors.black, fontSize: width * 0.04),
                     ),
-                    Divider(
-                      height: height * 0.01,
-                      color: Colors.transparent,
-                    ),
-                    const AttachmentWidget(
-                        fileName: 'Documento',
-                        fileSize: '2.2 mb',
-                        fileType: '.doc'),
-                    Divider(
-                      height: height * 0.01,
-                      color: Colors.transparent,
-                    ),
+                    // Divider(
+                    //   height: height * 0.01,
+                    //   color: Colors.transparent,
+                    // ),
+                    // const AttachmentWidget(
+                    //     fileName: 'Documento',
+                    //     fileSize: '2.2 mb',
+                    //     fileType: '.doc'),
+                    // Divider(
+                    //   height: height * 0.01,
+                    //   color: Colors.transparent,
+                    // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        TextButton(onPressed: () {}, child: const Text('ACEPTAR', style: TextStyle(color: Colors.blue),)),
-                        SizedBox(
-                          width: width * 0.05,
-                        ),
-                        TextButton(onPressed: () {}, child: const Text('CANCELAR', style: TextStyle(color: Colors.blue))),
+                        TextButton(onPressed: () {}, child: const Text('DETALLES', style: TextStyle(color: Colors.blue),)),
+                        // SizedBox(
+                        //   width: width * 0.05,
+                        // ),
+                        // TextButton(onPressed: () {}, child: const Text('CANCELAR', style: TextStyle(color: Colors.blue))),
                       ],
                     ),
-                    Container(
-                        alignment: Alignment.centerRight,
-                        child: IconButton(
-                          icon: const Icon(Icons.keyboard_arrow_down_rounded),
-                          onPressed: () {},
-                          splashColor: Colors.blue[300],
-                          splashRadius: width * 0.05,
-                          highlightColor: Colors.blue[100],
-                        )),
+                    // Container(
+                    //     alignment: Alignment.centerRight,
+                    //     child: IconButton(
+                    //       icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                    //       onPressed: () {},
+                    //       splashColor: Colors.blue[300],
+                    //       splashRadius: width * 0.05,
+                    //       highlightColor: Colors.blue[100],
+                    //     )),
                   ],
                 ),
               ),
@@ -146,15 +146,15 @@ class CustomNotificationsCard extends StatelessWidget {
 }
 
 class AttachmentWidget extends StatelessWidget {
-  final String fileName;
-  final String fileSize;
-  final String fileType;
+  final String? fileName;
+  final String? fileSize;
+  final String? fileType;
 
   const AttachmentWidget({
     Key? key,
-    required this.fileName,
-    required this.fileSize,
-    required this.fileType,
+    this.fileName,
+    this.fileSize,
+    this.fileType,
   }) : super(key: key);
 
   @override
@@ -178,7 +178,7 @@ class AttachmentWidget extends StatelessWidget {
               ),
               SizedBox(width: width * 0.01),
               Text(
-                fileName,
+                fileName!,
                 style: TextStyle(
                   fontSize: width * 0.035,
                   fontWeight: FontWeight.bold,
@@ -186,7 +186,7 @@ class AttachmentWidget extends StatelessWidget {
               ),
               SizedBox(width: width * 0.01),
               Text(
-                fileType,
+                fileType!,
                 style: TextStyle(
                   fontSize: width * 0.035,
                   color: Colors.grey,
@@ -194,7 +194,7 @@ class AttachmentWidget extends StatelessWidget {
               ),
               SizedBox(width: width * 0.02),
               Text(
-                fileSize,
+                fileSize!,
                 style: TextStyle(
                   fontSize: width * 0.035,
                   color: Colors.grey,

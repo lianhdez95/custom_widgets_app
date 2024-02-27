@@ -24,6 +24,7 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
   bool isSelected = false;
   bool error = false;
   bool hasFloatingActionButton = false;
+  final TextEditingController _operationController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -198,6 +199,7 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
           toParseInputUser = '';
           realInputUser = '';
           result = '0';
+          _operationController.text = '';
         });
       },
       elevation: 2.0,
@@ -257,6 +259,23 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
                   toParseInputUser.substring(0, toParseInputUser.length - 1);
               realInputUser =
                   realInputUser.substring(0, realInputUser.length - 1);
+              _operationController.text = _operationController.text
+                  .substring(0, _operationController.text.length - 1);
+              Parser parser = Parser();
+              String expressionString = toParseInputUser.replaceAll('%',
+                  '*0.01'); // Reemplazar "%" con "*0.01" para calcular el porcentaje
+              if (toParseInputUser.isEmpty) {
+                result = '0';
+                return;
+              }
+              Expression expression = parser.parse(expressionString);
+              ContextModel contextModel = ContextModel();
+              double eval =
+                  expression.evaluate(EvaluationType.REAL, contextModel);
+              result = eval.toString();
+              if(!eval.isNaN){
+                error = false;
+              }
             }
           });
         },
@@ -359,13 +378,15 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
                 padding: const EdgeInsets.all(10),
                 alignment: Alignment.centerRight,
                 child: Text(
-                  '${numberFormat.format(double.parse(result))}\n',
+                  numberFormat.format(double.parse(result)),
                   maxLines: 1,
-                  overflow: TextOverflow.fade,
+                  overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.orbitron(
-                      color: Colors.black,
-                      fontSize: height / 37,
+                      color: !result.contains('-')
+                          ? Colors.black
+                          : const Color.fromARGB(255, 167, 20, 10),
+                      fontSize: height / 46,
                       fontWeight: FontWeight.bold),
                 )));
       }
@@ -379,7 +400,7 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
               padding: const EdgeInsets.all(10),
               alignment: Alignment.centerRight,
               child: Text(
-                result,
+                'Error',
                 maxLines: 1,
                 overflow: TextOverflow.visible,
                 style: GoogleFonts.orbitron(
@@ -397,48 +418,107 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
           side: const BorderSide(color: Colors.grey),
           borderRadius: BorderRadius.circular(height * 0.02)),
       child: Container(
-        height: double.infinity,
-        width: double.infinity,
-        padding: const EdgeInsets.all(10),
-        alignment: Alignment.centerRight,
-        child: realInputUser.length < 13
-            ? RichText(
-                maxLines: 1,
-                overflow: TextOverflow.visible,
-                textAlign: TextAlign.end,
-                text: TextSpan(
-                    text: realInputUser,
-                    style: GoogleFonts.orbitron(
-                        color: const Color(0xFF414141),
-                        fontSize: height / 26,
-                        fontWeight: FontWeight.bold)))
-            // color: const Color(0xFF414141),
-            //   fontSize: height / 26,
-            : RichText(
-                maxLines: 2,
-                overflow: TextOverflow.visible,
-                textAlign: TextAlign.end,
-                text: TextSpan(
-                    text: '$realInputUser\n',
-                    style: GoogleFonts.orbitron(
-                        color: const Color(0xFF414141),
-                        fontSize: height / 37,
-                        fontWeight: FontWeight.bold))),
-      ),
+          height: double.infinity,
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          // alignment: Alignment.centerRight,
+          child: realInputUser.length < 13
+              ? TextField(
+                  textAlign: TextAlign.right,
+                  controller: _operationController,
+                  focusNode: focusNode,
+                  enabled: false,
+                  maxLines: 1,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    hintText: '0',
+                    hintStyle: TextStyle(color: Color(0xFF414141)),
+                  ),
+                  style: GoogleFonts.orbitron(
+                    color: const Color(0xFF414141),
+                    fontSize: height / 26,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  onChanged: (text) {
+                    // Actualizar el resultado en tiempo real
+                    _updateResult(text);
+                  },
+                )
+              // color: const Color(0xFF414141),
+              //   fontSize: height / 26,
+              : TextField(
+                textAlign: TextAlign.right,
+                  controller: _operationController,
+                  focusNode: focusNode,
+                  maxLines: 2,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    hintText: '0',
+                    hintStyle: TextStyle(color: Color(0xFF414141)),
+                  ),
+                  style: GoogleFonts.orbitron(
+                    color: const Color(0xFF414141),
+                    fontSize: height / 46,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  onChanged: (text) {
+                    // Actualizar el resultado en tiempo real
+                    _updateResult(text);
+                  },
+                )),
     );
   }
 
-  buttonPressed(String text) {
+  void _updateResult(String lastCharacter) {
     setState(() {
-      if (text == '%') {
-        if (toParseInputUser.isNotEmpty &&
-            toParseInputUser[toParseInputUser.length - 1] != '%') {
-          toParseInputUser += '/100*';
-          realInputUser += '%';
+      // Verifica que el último carácter sea un dígito
+      if (RegExp(r'^[0-9]$').hasMatch(lastCharacter)) {
+        toParseInputUser += lastCharacter;
+        realInputUser += lastCharacter;
+        _operationController.text =
+            realInputUser; // Aquí usamos realInputUser que es el que muestra la operación completa al usuario.
+
+        try {
+          // Intentamos parsear y evaluar la expresión cada vez que se añade un nuevo dígito.
+          Parser parser = Parser();
+          Expression expression = parser.parse(toParseInputUser);
+          ContextModel contextModel = ContextModel();
+          double eval = expression.evaluate(EvaluationType.REAL, contextModel);
+
+          error = false;
+          result = eval.toString();
+          hasFocus = true;
+          isSelected = true;
+          qrVisibility = !result.contains('-');
+          hasFloatingActionButton = qrVisibility;
+        } catch (e) {
+          setState(() {
+            error = true;
+            result = 'Error';
+          });
         }
+      }
+    });
+  }
+
+  void buttonPressed(String buttonText) {
+    setState(() {
+      if (RegExp(r'^[0-9]$').hasMatch(buttonText)) {
+        // Si es un número, actualiza el resultado y añade el texto al controlador
+        _updateResult(buttonText);
       } else {
-        toParseInputUser = toParseInputUser + text;
-        realInputUser = realInputUser + text;
+        // Aquí manejarías si se presionó un operador o cualquier otro botón que no sea número
+        if (buttonText == '+' ||
+            buttonText == '-' ||
+            buttonText == '*' ||
+            buttonText == '/' ||
+            buttonText == '.') {
+          toParseInputUser += buttonText;
+          realInputUser += buttonText;
+          _operationController.text = realInputUser;
+          // No llamar a _updateResult ya que no es un dígito
+        }
+        // Manejar otros botones como 'AC' o 'backspace' de acuerdo a su lógica específica.
       }
     });
   }

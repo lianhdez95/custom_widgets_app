@@ -54,49 +54,41 @@ class HomePage extends StatelessWidget {
               'title': 'Cards',
               'route': const CardsPage(),
             }),
-            const Divider(),
             navigationListTile(context, {
               'leading': const Icon(Icons.calendar_view_day, color: Colors.red,),
               'title': 'Bank Cards',
               'route': const BankCardsPage(),
             }),
-            const Divider(),
             navigationListTile(context, {
               'leading': const Icon(Icons.list_alt_outlined, color: Colors.red,),
               'title': 'ListView',
               'route': const ListViewPage(), // Agrega la ruta deseada aquí
             }),
-            const Divider(),
             navigationListTile(context, {
               'leading': const Icon(Icons.chat_bubble, color: Colors.red,),
               'title': 'Chat Bubbles',
               'route': const ChatBubblessPage(), // Agrega la ruta deseada aquí
             }),
-            const Divider(),
             navigationListTile(context, {
               'leading': const Icon(Icons.smart_button_sharp, color: Colors.red,),
               'title': 'Buttons',
               'route': const ButtonsPage(), // Agrega la ruta deseada aquí
             }),
-            const Divider(),
             navigationListTile(context, {
               'leading': const Icon(Icons.input, color: Colors.red,),
               'title': 'Text Inputs',
               'route': const InputsPage(), // Agrega la ruta deseada aquí
             }),
-            const Divider(),
             navigationListTile(context, {
               'leading': const Icon(Icons.navigation_rounded, color: Colors.red,),
               'title': 'Navigation Bars',
               'route': const NavigationBarsPage(), // Agrega la ruta deseada aquí
             }),
-            const Divider(),
             navigationListTile(context, {
               'leading': const Icon(Icons.mobile_screen_share, color: Colors.red,),
               'title': 'Screens',
               'route': const ScreensPage(), // Agrega la ruta deseada aquí
             }),
-            const Divider(),
           ],
         ),
       ),
