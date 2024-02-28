@@ -166,7 +166,7 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
                       SizedBox(
                         height: height * 0.02,
                       ),
-                      equalButton(),
+                      qrButton(),
                     ],
                   ),
                   SizedBox(
@@ -210,6 +210,10 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
       child: Text(
         'AC',
         style: GoogleFonts.orbitron(
+            shadows: [
+              const Shadow(
+                  color: Colors.black, offset: Offset(1, 1), blurRadius: 10.0)
+            ],
             color: Colors.white,
             fontSize: height * 0.035,
             fontWeight: FontWeight.bold),
@@ -237,6 +241,10 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
         style: GoogleFonts.orbitron(
             color: Colors.white,
             fontSize: height * 0.035,
+            shadows: [
+              const Shadow(
+                  color: Colors.black, offset: Offset(1, 1), blurRadius: 10.0)
+            ],
             fontWeight: FontWeight.bold),
       ),
     );
@@ -257,23 +265,28 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
             if (toParseInputUser.isNotEmpty) {
               toParseInputUser =
                   toParseInputUser.substring(0, toParseInputUser.length - 1);
+            }
+            if (realInputUser.isNotEmpty) {
               realInputUser =
                   realInputUser.substring(0, realInputUser.length - 1);
+            }
+            if (_operationController.text.isNotEmpty) {
               _operationController.text = _operationController.text
                   .substring(0, _operationController.text.length - 1);
+            }
+            if (toParseInputUser.isEmpty) {
+              result = '0';
+            } else if (toParseInputUser[toParseInputUser.length - 1] != '/' &&
+                toParseInputUser[toParseInputUser.length - 1] != '-' &&
+                toParseInputUser[toParseInputUser.length - 1] != '+' &&
+                toParseInputUser[toParseInputUser.length - 1] != '*') {
               Parser parser = Parser();
-              String expressionString = toParseInputUser.replaceAll('%',
-                  '*0.01'); // Reemplazar "%" con "*0.01" para calcular el porcentaje
-              if (toParseInputUser.isEmpty) {
-                result = '0';
-                return;
-              }
-              Expression expression = parser.parse(expressionString);
+              Expression expression = parser.parse(toParseInputUser);
               ContextModel contextModel = ContextModel();
               double eval =
                   expression.evaluate(EvaluationType.REAL, contextModel);
               result = eval.toString();
-              if(!eval.isNaN){
+              if (!eval.isNaN) {
                 error = false;
               }
             }
@@ -283,13 +296,16 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
         // fillColor: getBackgroundColor(text2),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Icon(
+          shadows: const [
+            Shadow(color: Colors.black, offset: Offset(1, 1), blurRadius: 10.0)
+          ],
           Icons.backspace,
           color: Colors.white,
           size: height * 0.04,
         ));
   }
 
-  Widget equalButton() {
+  Widget qrButton() {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return RawMaterialButton(
@@ -300,10 +316,9 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
         ),
         onPressed: () {
           try {
-            Parser parser = Parser();
-            String expressionString = toParseInputUser.replaceAll('%',
-                '*0.01'); // Reemplazar "%" con "*0.01" para calcular el porcentaje
-            Expression expression = parser.parse(expressionString);
+            Parser parser =
+                Parser(); // Reemplazar "%" con "*0.01" para calcular el porcentaje
+            Expression expression = parser.parse(toParseInputUser);
             ContextModel contextModel = ContextModel();
             double eval =
                 expression.evaluate(EvaluationType.REAL, contextModel);
@@ -330,6 +345,9 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
         elevation: 2.0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Icon(
+          shadows: const [
+            Shadow(color: Colors.black, offset: Offset(1, 1), blurRadius: 10.0)
+          ],
           Icons.qr_code_2,
           size: height * 0.07,
           color: Colors.white,
@@ -447,7 +465,7 @@ class _NewCalculatorScreenState extends State<NewCalculatorScreen> {
               // color: const Color(0xFF414141),
               //   fontSize: height / 26,
               : TextField(
-                textAlign: TextAlign.right,
+                  textAlign: TextAlign.right,
                   controller: _operationController,
                   focusNode: focusNode,
                   maxLines: 2,

@@ -44,7 +44,7 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
           beginColor: Colors.cyan.shade800,
           endColor: Colors.cyan.shade400,
         ),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Column(
             children: [
               CustomNotificationsCard(),
